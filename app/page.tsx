@@ -7,6 +7,8 @@ export default function Home() {
   const navbarRef = useRef<HTMLElement | null>(null);
   const scrollTopRef = useRef<HTMLButtonElement | null>(null);
   const [scrollAmount, setScrollAmount] = useState(0);
+  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [formMessage, setFormMessage] = useState('');
 
   useEffect(() => {
     const navbar = navbarRef.current;
@@ -79,6 +81,45 @@ export default function Home() {
     const target = document.getElementById(id);
     if (target) {
       target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setFormStatus('submitting');
+    setFormMessage('');
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get('name') as string,
+      phone: formData.get('phone') as string,
+      email: formData.get('email') as string,
+      service: formData.get('service') as string,
+      message: formData.get('message') as string,
+    };
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setFormStatus('success');
+        setFormMessage('Thank you! Your message has been sent successfully. We\'ll get back to you soon.');
+        e.currentTarget.reset();
+      } else {
+        setFormStatus('error');
+        setFormMessage(result.error || 'Something went wrong. Please try again or call us directly.');
+      }
+    } catch (error) {
+      setFormStatus('error');
+      setFormMessage('Failed to send message. Please try again or contact us by phone.');
     }
   }
 
@@ -423,7 +464,7 @@ export default function Home() {
                 </div>
                 <div className="contact-item-text">
                   <h4>Email</h4>
-                  <a href="mailto:fixsyndicate1@gmail.com">fixsyndicate1@gmail.com</a>
+                  <a href="mailto:rapidshiftdev@gmail.com">rapidshiftdev@gmail.com</a>
                 </div>
               </div>
 
@@ -439,24 +480,48 @@ export default function Home() {
             </div>
 
             <div className="contact-form">
-              <form action="mailto:fixsyndicate1@gmail.com" method="post" encType="text/plain">
+              <form onSubmit={handleSubmit}>
+                {formStatus === 'success' && (
+                  <div style={{
+                    padding: '15px',
+                    marginBottom: '20px',
+                    backgroundColor: '#10b981',
+                    color: 'white',
+                    borderRadius: '8px',
+                    textAlign: 'center'
+                  }}>
+                    {formMessage}
+                  </div>
+                )}
+                {formStatus === 'error' && (
+                  <div style={{
+                    padding: '15px',
+                    marginBottom: '20px',
+                    backgroundColor: '#ef4444',
+                    color: 'white',
+                    borderRadius: '8px',
+                    textAlign: 'center'
+                  }}>
+                    {formMessage}
+                  </div>
+                )}
                 <div className="form-row">
                   <div className="form-group">
                     <label>Your Name</label>
-                    <input type="text" name="name" placeholder="John Smith" required />
+                    <input type="text" name="name" placeholder="John Smith" required disabled={formStatus === 'submitting'} />
                   </div>
                   <div className="form-group">
                     <label>Phone Number</label>
-                    <input type="tel" name="phone" placeholder="0400 000 000" />
+                    <input type="tel" name="phone" placeholder="0400 000 000" disabled={formStatus === 'submitting'} />
                   </div>
                 </div>
                 <div className="form-group">
                   <label>Email Address</label>
-                  <input type="email" name="email" placeholder="john@example.com" required />
+                  <input type="email" name="email" placeholder="john@example.com" required disabled={formStatus === 'submitting'} />
                 </div>
                 <div className="form-group">
                   <label>Service Required</label>
-                  <select name="service">
+                  <select name="service" disabled={formStatus === 'submitting'}>
                     <option value="">Select a service...</option>
                     <option value="maintenance">General Maintenance & Repairs</option>
                     <option value="cleaning">Cleaning & Janitorial</option>
@@ -470,10 +535,11 @@ export default function Home() {
                 </div>
                 <div className="form-group">
                   <label>Message</label>
-                  <textarea name="message" placeholder="Tell us about your property needs..." required></textarea>
+                  <textarea name="message" placeholder="Tell us about your property needs..." required disabled={formStatus === 'submitting'}></textarea>
                 </div>
-                <button type="submit" className="btn btn-primary">
-                  <i className="fas fa-paper-plane"></i> Send Message
+                <button type="submit" className="btn btn-primary" disabled={formStatus === 'submitting'}>
+                  <i className={formStatus === 'submitting' ? 'fas fa-spinner fa-spin' : 'fas fa-paper-plane'}></i>
+                  {formStatus === 'submitting' ? ' Sending...' : ' Send Message'}
                 </button>
               </form>
             </div>
@@ -515,7 +581,7 @@ export default function Home() {
             <h4>Contact</h4>
             <ul>
               <li><a href="tel:0416493356">0416 493 356</a></li>
-              <li><a href="mailto:fixsyndicate1@gmail.com">fixsyndicate1@gmail.com</a></li>
+              <li><a href="mailto:rapidshiftdev@gmail.com">rapidshiftdev@gmail.com</a></li>
               <li><a href="#">Mon - Sat: 7AM - 6PM</a></li>
             </ul>
           </div>
