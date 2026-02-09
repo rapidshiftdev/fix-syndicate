@@ -270,107 +270,207 @@ export default function Home() {
             </div>
 
             <div className="service-card">
-              <div className="service-icon"><i className="fas fa-building" /></div>
+              <div className="service-icon"><i className="fas fa-hard-hat" /></div>
               <h3>Exterior & Structural</h3>
-              <p>Maintain and restore your building's exterior to ensure safety and aesthetics.</p>
+              <p>Comprehensive exterior maintenance including painting, roofing, and repairs.</p>
             </div>
 
             <div className="service-card">
-              <div className="service-icon"><i className="fas fa-undo" /></div>
-              <h3>Property Turnover</h3>
-              <p>Efficient turnover services for rental properties, including cleaning and repairs.</p>
+              <div className="service-icon"><i className="fas fa-home" /></div>
+              <h3>Property Turnover & Rental Prep</h3>
+              <p>Get your property rent-ready with thorough turnover services.</p>
             </div>
 
             <div className="service-card">
-              <div className="service-icon"><i className="fas fa-life-ring" /></div>
-              <h3>Emergency Services</h3>
-              <p>24/7 emergency maintenance and repair services to address urgent issues.</p>
+              <div className="service-icon"><i className="fas fa-phone-volume" /></div>
+              <h3>Emergency & On-Call</h3>
+              <p>24/7 emergency response for urgent property issues when you need us most.</p>
             </div>
 
             <div className="service-card">
-              <div className="service-icon"><i className="fas fa-search" /></div>
-              <h3>Property Inspections</h3>
-              <p>Thorough inspections to identify and address potential maintenance issues.</p>
+              <div className="service-icon"><i className="fas fa-calendar-alt" /></div>
+              <h3>Scheduled Maintenance</h3>
+              <p>Regular preventive maintenance programs to extend your property&apos;s lifespan.</p>
             </div>
 
             <div className="service-card">
-              <div className="service-icon"><i className="fas fa-calendar-check" /></div>
-              <h3>Preventive Maintenance</h3>
-              <p>Proactive maintenance plans to prevent issues and extend the life of your property.</p>
+              <div className="service-icon"><i className="fas fa-clipboard-check" /></div>
+              <h3>Inspections & Admin</h3>
+              <p>Detailed property inspections and comprehensive administrative services.</p>
             </div>
           </div>
         </div>
       </section>
 
       <section className="about" id="about">
-        <div className="container">
-          <div className="section-header">
-            <span className="section-badge">About Us</span>
-            <h2 className="section-title">Who We Are</h2>
-            <p className="section-subtitle">Learn more about our company and values</p>
+        <div className="about-content">
+          <div className="about-images">
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Property" className="about-img-main" />
+            <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Interior" className="about-img-secondary" />
+            <div className="about-experience">
+              <span>15+</span>
+              <p>Years Experience</p>
+            </div>
           </div>
+          <div className="about-text">
+            <span className="section-badge">About Us</span>
+            <h2>Your Trusted Property Care Partner</h2>
+            <p>At Fix Syndicate, we understand that your property is more than just a building – it&apos;s an investment. Our dedicated team provides comprehensive maintenance and management services for residential, commercial, and industrial properties.</p>
 
-          <div className="about-content">
-            <div className="about-text">
-              <h3>Committed to Excellence</h3>
-              <p>
-                At Fix Syndicate, we are dedicated to providing top-notch property maintenance and management services. Our team of experts is committed to ensuring your property is well-maintained, safe, and aesthetically pleasing.
-              </p>
-              <p>
-                With years of experience in the industry, we understand the unique needs of each property and tailor our services accordingly. We pride ourselves on our attention to detail, reliability, and customer satisfaction.
-              </p>
-              <a onClick={(e) => { e.preventDefault(); scrollToTarget("#contact"); }} href="#contact" className="btn btn-primary">
-                <i className="fas fa-paper-plane"></i> Contact Us
-              </a>
+            <div className="about-features">
+              <div className="about-feature">
+                <div className="about-feature-icon">
+                  <i className="fas fa-shield-alt" />
+                </div>
+                <span>Licensed & Insured</span>
+              </div>
+              <div className="about-feature">
+                <div className="about-feature-icon">
+                  <i className="fas fa-dollar-sign" />
+                </div>
+                <span>Transparent Pricing</span>
+              </div>
+              <div className="about-feature">
+                <div className="about-feature-icon">
+                  <i className="fas fa-medal" />
+                </div>
+                <span>Quality Guaranteed</span>
+              </div>
+              <div className="about-feature">
+                <div className="about-feature-icon">
+                  <i className="fas fa-bolt" />
+                </div>
+                <span>Fast Response</span>
+              </div>
             </div>
 
-            <div className="about-image">
-              <img
-                src="https://images.unsplash.com/photo-1588702547920-7b8f3f3f3f3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                alt="About Us"
-                className="about-image-main"
-              />
+            <a onClick={(e) => { e.preventDefault(); scrollToTarget("#contact"); }} href="#contact" className="btn btn-primary">
+              <i className="fas fa-arrow-right"></i> Get Started Today
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="why-us">
+        <div className="container">
+          <div className="section-header" style={{textAlign: 'center', marginBottom: '20px'}}>
+            <span className="section-badge">Why Us</span>
+            <h2 className="section-title">Why Choose Fix Syndicate?</h2>
+            <p className="section-subtitle">We deliver exceptional value through quality, reliability, and customer focus</p>
+          </div>
+
+          <div className="why-grid">
+            <div className="why-item">
+              <i className="fas fa-gem" />
+              <h4>Premium Quality</h4>
+              <p>Our skilled professionals deliver superior results on every project, big or small.</p>
+            </div>
+            <div className="why-item">
+              <i className="fas fa-stopwatch" />
+              <h4>Timely Delivery</h4>
+              <p>We respect your time with punctual arrivals and efficient project completion.</p>
+            </div>
+            <div className="why-item">
+              <i className="fas fa-hand-holding-usd" />
+              <h4>Best Value</h4>
+              <p>Fair, transparent pricing with no hidden fees. Maximum value for your investment.</p>
+            </div>
+            <div className="why-item">
+              <i className="fas fa-headset" />
+              <h4>Always Available</h4>
+              <p>Round-the-clock availability for emergencies and customer inquiries.</p>
             </div>
           </div>
         </div>
       </section>
 
+      <section className="cta-section">
+        <div className="container">
+          <h2>Ready to Transform Your Property?</h2>
+          <p>Get in touch today for a free consultation and quote. Let us take care of all your property maintenance needs.</p>
+          <a href="tel:0416493356" className="btn">
+            <i className="fas fa-phone-alt"></i> Call Now: 0416 493 356
+          </a>
+        </div>
+      </section>
+
       <section className="contact" id="contact">
         <div className="container">
-          <div className="section-header">
+          <div className="section-header" style={{textAlign: 'center'}}>
             <span className="section-badge">Get In Touch</span>
             <h2 className="section-title">Contact Us</h2>
-            <p className="section-subtitle">We'd love to hear from you</p>
+            <p className="section-subtitle">We&apos;d love to hear from you. Reach out for a free quote today!</p>
           </div>
 
-          <div className="contact-content">
+          <div className="contact-wrapper">
             <div className="contact-info">
-              <h3>Contact Details</h3>
-              <p>
-                <i className="fas fa-map-marker-alt"></i> 123 Main Street, Hometown, USA
-              </p>
-              <p>
-                <i className="fas fa-phone"></i> (123) 456-7890
-              </p>
-              <p>
-                <i className="fas fa-envelope"></i> info@fixsyndicate.com
-              </p>
+              <h3>Let&apos;s Talk About Your Property</h3>
+              <p>Have a question or need a quote? We&apos;re here to help with all your property maintenance needs.</p>
+
+              <div className="contact-item">
+                <div className="contact-item-icon">
+                  <i className="fas fa-phone-alt" />
+                </div>
+                <div className="contact-item-text">
+                  <h4>Phone</h4>
+                  <a href="tel:0416493356">0416 493 356</a>
+                </div>
+              </div>
+
+              <div className="contact-item">
+                <div className="contact-item-icon">
+                  <i className="fas fa-envelope" />
+                </div>
+                <div className="contact-item-text">
+                  <h4>Email</h4>
+                  <a href="mailto:fixsyndicate1@gmail.com">fixsyndicate1@gmail.com</a>
+                </div>
+              </div>
+
+              <div className="contact-item">
+                <div className="contact-item-icon">
+                  <i className="fas fa-clock" />
+                </div>
+                <div className="contact-item-text">
+                  <h4>Working Hours</h4>
+                  <p>Mon - Sat: 7:00 AM - 6:00 PM | Emergency: 24/7</p>
+                </div>
+              </div>
             </div>
 
             <div className="contact-form">
-              <h3>Send Us a Message</h3>
-              <form action="#" method="POST">
-                <div className="form-group">
-                  <label htmlFor="name">Name</label>
-                  <input type="text" id="name" name="name" required />
+              <form action="mailto:fixsyndicate1@gmail.com" method="post" encType="text/plain">
+                <div className="form-row">
+                  <div className="form-group">
+                    <label>Your Name</label>
+                    <input type="text" name="name" placeholder="John Smith" required />
+                  </div>
+                  <div className="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" name="phone" placeholder="0400 000 000" />
+                  </div>
                 </div>
                 <div className="form-group">
-                  <label htmlFor="email">Email</label>
-                  <input type="email" id="email" name="email" required />
+                  <label>Email Address</label>
+                  <input type="email" name="email" placeholder="john@example.com" required />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="message">Message</label>
-                  <textarea id="message" name="message" rows={4} required></textarea>
+                  <label>Service Required</label>
+                  <select name="service">
+                    <option value="">Select a service...</option>
+                    <option value="maintenance">General Maintenance & Repairs</option>
+                    <option value="cleaning">Cleaning & Janitorial</option>
+                    <option value="landscaping">Grounds & Landscaping</option>
+                    <option value="exterior">Exterior & Structural Work</option>
+                    <option value="turnover">Property Turnover</option>
+                    <option value="emergency">Emergency Services</option>
+                    <option value="scheduled">Scheduled Maintenance</option>
+                    <option value="inspection">Inspections & Admin</option>
+                  </select>
+                </div>
+                <div className="form-group">
+                  <label>Message</label>
+                  <textarea name="message" placeholder="Tell us about your property needs..." required></textarea>
                 </div>
                 <button type="submit" className="btn btn-primary">
                   <i className="fas fa-paper-plane"></i> Send Message
@@ -382,38 +482,47 @@ export default function Home() {
       </section>
 
       <footer>
-        <div className="container">
-          <div className="footer-content">
-            <div className="footer-logo">
-              <a href="#home">
-                Fix <span>Syndicate</span>
-              </a>
-            </div>
-            <div className="footer-links">
-              <a onClick={(e) => { e.preventDefault(); scrollToTarget("#home"); }} href="#home">Home</a>
-              <a onClick={(e) => { e.preventDefault(); scrollToTarget("#services"); }} href="#services">Services</a>
-              <a onClick={(e) => { e.preventDefault(); scrollToTarget("#about"); }} href="#about">About</a>
-              <a onClick={(e) => { e.preventDefault(); scrollToTarget("#contact"); }} href="#contact">Contact</a>
-            </div>
-            <div className="footer-social">
-              <a href="#" aria-label="Facebook">
-                <i className="fab fa-facebook-f" />
-              </a>
-              <a href="#" aria-label="Twitter">
-                <i className="fab fa-twitter" />
-              </a>
-              <a href="#" aria-label="Instagram">
-                <i className="fab fa-instagram" />
-              </a>
-              <a href="#" aria-label="LinkedIn">
-                <i className="fab fa-linkedin-in" />
-              </a>
+        <div className="footer-content">
+          <div className="footer-brand">
+            <h3>Fix <span>Syndicate</span></h3>
+            <p>Your trusted partner for comprehensive property maintenance and management services across residential, commercial, and industrial sectors.</p>
+            <div className="social-links">
+              <a href="#"><i className="fab fa-facebook-f" /></a>
+              <a href="#"><i className="fab fa-instagram" /></a>
+              <a href="#"><i className="fab fa-linkedin-in" /></a>
+              <a href="#"><i className="fab fa-twitter" /></a>
             </div>
           </div>
+          <div className="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a onClick={(e) => { e.preventDefault(); scrollToTarget("#home"); }} href="#home">Home</a></li>
+              <li><a onClick={(e) => { e.preventDefault(); scrollToTarget("#services"); }} href="#services">Services</a></li>
+              <li><a onClick={(e) => { e.preventDefault(); scrollToTarget("#about"); }} href="#about">About Us</a></li>
+              <li><a onClick={(e) => { e.preventDefault(); scrollToTarget("#contact"); }} href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div className="footer-links">
+            <h4>Services</h4>
+            <ul>
+              <li><a onClick={(e) => { e.preventDefault(); scrollToTarget("#services"); }} href="#services">Maintenance</a></li>
+              <li><a onClick={(e) => { e.preventDefault(); scrollToTarget("#services"); }} href="#services">Cleaning</a></li>
+              <li><a onClick={(e) => { e.preventDefault(); scrollToTarget("#services"); }} href="#services">Landscaping</a></li>
+              <li><a onClick={(e) => { e.preventDefault(); scrollToTarget("#services"); }} href="#services">Inspections</a></li>
+            </ul>
+          </div>
+          <div className="footer-links">
+            <h4>Contact</h4>
+            <ul>
+              <li><a href="tel:0416493356">0416 493 356</a></li>
+              <li><a href="mailto:fixsyndicate1@gmail.com">fixsyndicate1@gmail.com</a></li>
+              <li><a href="#">Mon - Sat: 7AM - 6PM</a></li>
+            </ul>
+          </div>
+        </div>
 
-          <div className="footer-bottom">
-            <p>&copy; 2027 Fix Syndicate Property Maintenance & Management. All Rights Reserved.</p>
-          </div>
+        <div className="footer-bottom">
+          <p>&copy; 2026 Fix Syndicate Property Maintenance & Management. All Rights Reserved.</p>
         </div>
       </footer>
 
