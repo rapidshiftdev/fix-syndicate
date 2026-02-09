@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 export default function Home() {
   const carouselTrackRef = useRef<HTMLDivElement | null>(null);
@@ -118,6 +119,7 @@ export default function Home() {
         setFormMessage(result.error || 'Something went wrong. Please try again or call us directly.');
       }
     } catch (error) {
+      console.error('Form submission error:', error);
       setFormStatus('error');
       setFormMessage('Failed to send message. Please try again or contact us by phone.');
     }
@@ -125,25 +127,25 @@ export default function Home() {
 
   return (
     <>
-      <nav id="navbar" ref={navbarRef}>
-        <a href="#home" className="nav-logo">
+      <nav id="navbar" ref={navbarRef} aria-label="Main navigation">
+        <a href="#home" className="nav-logo" aria-label="Fix Syndicate Home">
           Fix <span>Syndicate</span>
         </a>
-        <ul className="nav-links">
+        <ul className="nav-links" role="list">
           <li>
-            <a onClick={(e) => { e.preventDefault(); scrollToTarget("#home"); }} href="#home">Home</a>
+            <a onClick={(e) => { e.preventDefault(); scrollToTarget("#home"); }} href="#home" aria-label="Navigate to Home section">Home</a>
           </li>
           <li>
-            <a onClick={(e) => { e.preventDefault(); scrollToTarget("#services"); }} href="#services">Services</a>
+            <a onClick={(e) => { e.preventDefault(); scrollToTarget("#services"); }} href="#services" aria-label="Navigate to Services section">Services</a>
           </li>
           <li>
-            <a onClick={(e) => { e.preventDefault(); scrollToTarget("#about"); }} href="#about">About</a>
+            <a onClick={(e) => { e.preventDefault(); scrollToTarget("#about"); }} href="#about" aria-label="Navigate to About section">About</a>
           </li>
           <li>
-            <a onClick={(e) => { e.preventDefault(); scrollToTarget("#contact"); }} href="#contact">Contact</a>
+            <a onClick={(e) => { e.preventDefault(); scrollToTarget("#contact"); }} href="#contact" aria-label="Navigate to Contact section">Contact</a>
           </li>
           <li>
-            <a href="tel:0416493356" className="nav-cta">Call Now</a>
+            <a href="tel:0416493356" className="nav-cta" aria-label="Call us now">Call Now</a>
           </li>
         </ul>
       </nav>
@@ -176,14 +178,17 @@ export default function Home() {
           </div>
 
           <div className="hero-image">
-            <img
+            <Image
               src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
               alt="Modern Property"
               className="hero-image-main"
+              width={800}
+              height={600}
+              priority
             />
             <div className="hero-floating-card card-1">
               <div className="floating-icon">
-                <i className="fas fa-check" />
+                <i className="fas fa-check" aria-hidden="true" />
               </div>
               <div className="floating-text">
                 <h4>500+</h4>
@@ -192,7 +197,7 @@ export default function Home() {
             </div>
             <div className="hero-floating-card card-2">
               <div className="floating-icon">
-                <i className="fas fa-star" />
+                <i className="fas fa-star" aria-hidden="true" />
               </div>
               <div className="floating-text">
                 <h4>98%</h4>
@@ -202,9 +207,9 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="scroll-down" onClick={() => scrollToTarget("#portfolio")}>
+        <div className="scroll-down" onClick={() => scrollToTarget("#portfolio")} role="button" tabIndex={0} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') scrollToTarget("#portfolio"); }} aria-label="Scroll down to portfolio">
           <span>Scroll Down</span>
-          <i className="fas fa-chevron-down" />
+          <i className="fas fa-chevron-down" aria-hidden="true" />
         </div>
       </section>
 
@@ -238,7 +243,7 @@ export default function Home() {
             ])
             .map((item, idx) => (
               <div className="carousel-item" key={idx}>
-                <img src={item.src} alt={item.title} />
+                <Image src={item.src} alt={item.title} width={800} height={600} />
                 <div className="carousel-overlay">
                   <h3>{item.title}</h3>
                   <p>{item.text}</p>
@@ -261,22 +266,22 @@ export default function Home() {
       <section className="stats">
         <div className="stats-grid">
           <div className="stat-item">
-            <div className="stat-icon"><i className="fas fa-building" /></div>
+            <div className="stat-icon"><i className="fas fa-building" aria-hidden="true" /></div>
             <span className="stat-number">500+</span>
             <div className="stat-label">Properties Managed</div>
           </div>
           <div className="stat-item">
-            <div className="stat-icon"><i className="fas fa-smile" /></div>
+            <div className="stat-icon"><i className="fas fa-smile" aria-hidden="true" /></div>
             <span className="stat-number">98%</span>
             <div className="stat-label">Client Satisfaction</div>
           </div>
           <div className="stat-item">
-            <div className="stat-icon"><i className="fas fa-clock" /></div>
+            <div className="stat-icon"><i className="fas fa-clock" aria-hidden="true" /></div>
             <span className="stat-number">24/7</span>
             <div className="stat-label">Emergency Support</div>
           </div>
           <div className="stat-item">
-            <div className="stat-icon"><i className="fas fa-award" /></div>
+            <div className="stat-icon"><i className="fas fa-award" aria-hidden="true" /></div>
             <span className="stat-number">15+</span>
             <div className="stat-label">Years Experience</div>
           </div>
@@ -293,49 +298,49 @@ export default function Home() {
 
           <div className="services-grid">
             <div className="service-card">
-              <div className="service-icon"><i className="fas fa-tools" /></div>
+              <div className="service-icon"><i className="fas fa-tools" aria-hidden="true" /></div>
               <h3>General Maintenance & Repairs</h3>
               <p>From minor fixes to major repairs, we handle all aspects of property maintenance with expertise.</p>
             </div>
 
             <div className="service-card">
-              <div className="service-icon"><i className="fas fa-broom" /></div>
+              <div className="service-icon"><i className="fas fa-broom" aria-hidden="true" /></div>
               <h3>Cleaning & Janitorial</h3>
               <p>Professional cleaning solutions to keep your property spotless and welcoming.</p>
             </div>
 
             <div className="service-card">
-              <div className="service-icon"><i className="fas fa-leaf" /></div>
+              <div className="service-icon"><i className="fas fa-leaf" aria-hidden="true" /></div>
               <h3>Grounds & Landscaping</h3>
               <p>Transform outdoor spaces with expert landscaping and grounds maintenance.</p>
             </div>
 
             <div className="service-card">
-              <div className="service-icon"><i className="fas fa-hard-hat" /></div>
+              <div className="service-icon"><i className="fas fa-hard-hat" aria-hidden="true" /></div>
               <h3>Exterior & Structural</h3>
               <p>Comprehensive exterior maintenance including painting, roofing, and repairs.</p>
             </div>
 
             <div className="service-card">
-              <div className="service-icon"><i className="fas fa-home" /></div>
+              <div className="service-icon"><i className="fas fa-home" aria-hidden="true" /></div>
               <h3>Property Turnover & Rental Prep</h3>
               <p>Get your property rent-ready with thorough turnover services.</p>
             </div>
 
             <div className="service-card">
-              <div className="service-icon"><i className="fas fa-phone-volume" /></div>
+              <div className="service-icon"><i className="fas fa-phone-volume" aria-hidden="true" /></div>
               <h3>Emergency & On-Call</h3>
               <p>24/7 emergency response for urgent property issues when you need us most.</p>
             </div>
 
             <div className="service-card">
-              <div className="service-icon"><i className="fas fa-calendar-alt" /></div>
+              <div className="service-icon"><i className="fas fa-calendar-alt" aria-hidden="true" /></div>
               <h3>Scheduled Maintenance</h3>
               <p>Regular preventive maintenance programs to extend your property&apos;s lifespan.</p>
             </div>
 
             <div className="service-card">
-              <div className="service-icon"><i className="fas fa-clipboard-check" /></div>
+              <div className="service-icon"><i className="fas fa-clipboard-check" aria-hidden="true" /></div>
               <h3>Inspections & Admin</h3>
               <p>Detailed property inspections and comprehensive administrative services.</p>
             </div>
@@ -346,8 +351,8 @@ export default function Home() {
       <section className="about" id="about">
         <div className="about-content">
           <div className="about-images">
-            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Property" className="about-img-main" />
-            <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Interior" className="about-img-secondary" />
+            <Image src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Property" className="about-img-main" width={800} height={600} />
+            <Image src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Interior" className="about-img-secondary" width={500} height={600} />
             <div className="about-experience">
               <span>15+</span>
               <p>Years Experience</p>
@@ -361,25 +366,25 @@ export default function Home() {
             <div className="about-features">
               <div className="about-feature">
                 <div className="about-feature-icon">
-                  <i className="fas fa-shield-alt" />
+                  <i className="fas fa-shield-alt" aria-hidden="true" />
                 </div>
                 <span>Licensed & Insured</span>
               </div>
               <div className="about-feature">
                 <div className="about-feature-icon">
-                  <i className="fas fa-dollar-sign" />
+                  <i className="fas fa-dollar-sign" aria-hidden="true" />
                 </div>
                 <span>Transparent Pricing</span>
               </div>
               <div className="about-feature">
                 <div className="about-feature-icon">
-                  <i className="fas fa-medal" />
+                  <i className="fas fa-medal" aria-hidden="true" />
                 </div>
                 <span>Quality Guaranteed</span>
               </div>
               <div className="about-feature">
                 <div className="about-feature-icon">
-                  <i className="fas fa-bolt" />
+                  <i className="fas fa-bolt" aria-hidden="true" />
                 </div>
                 <span>Fast Response</span>
               </div>
@@ -402,22 +407,22 @@ export default function Home() {
 
           <div className="why-grid">
             <div className="why-item">
-              <i className="fas fa-gem" />
+              <i className="fas fa-gem" aria-hidden="true" />
               <h4>Premium Quality</h4>
               <p>Our skilled professionals deliver superior results on every project, big or small.</p>
             </div>
             <div className="why-item">
-              <i className="fas fa-stopwatch" />
+              <i className="fas fa-stopwatch" aria-hidden="true" />
               <h4>Timely Delivery</h4>
               <p>We respect your time with punctual arrivals and efficient project completion.</p>
             </div>
             <div className="why-item">
-              <i className="fas fa-hand-holding-usd" />
+              <i className="fas fa-hand-holding-usd" aria-hidden="true" />
               <h4>Best Value</h4>
               <p>Fair, transparent pricing with no hidden fees. Maximum value for your investment.</p>
             </div>
             <div className="why-item">
-              <i className="fas fa-headset" />
+              <i className="fas fa-headset" aria-hidden="true" />
               <h4>Always Available</h4>
               <p>Round-the-clock availability for emergencies and customer inquiries.</p>
             </div>
@@ -450,7 +455,7 @@ export default function Home() {
 
               <div className="contact-item">
                 <div className="contact-item-icon">
-                  <i className="fas fa-phone-alt" />
+                  <i className="fas fa-phone-alt" aria-hidden="true" />
                 </div>
                 <div className="contact-item-text">
                   <h4>Phone</h4>
@@ -460,7 +465,7 @@ export default function Home() {
 
               <div className="contact-item">
                 <div className="contact-item-icon">
-                  <i className="fas fa-envelope" />
+                  <i className="fas fa-envelope" aria-hidden="true" />
                 </div>
                 <div className="contact-item-text">
                   <h4>Email</h4>
@@ -470,7 +475,7 @@ export default function Home() {
 
               <div className="contact-item">
                 <div className="contact-item-icon">
-                  <i className="fas fa-clock" />
+                  <i className="fas fa-clock" aria-hidden="true" />
                 </div>
                 <div className="contact-item-text">
                   <h4>Working Hours</h4>
@@ -553,10 +558,10 @@ export default function Home() {
             <h3>Fix <span>Syndicate</span></h3>
             <p>Your trusted partner for comprehensive property maintenance and management services across residential, commercial, and industrial sectors.</p>
             <div className="social-links">
-              <a href="#"><i className="fab fa-facebook-f" /></a>
-              <a href="#"><i className="fab fa-instagram" /></a>
-              <a href="#"><i className="fab fa-linkedin-in" /></a>
-              <a href="#"><i className="fab fa-twitter" /></a>
+              <a href="#" aria-label="Visit our Facebook page"><i className="fab fa-facebook-f" aria-hidden="true" /></a>
+              <a href="#" aria-label="Visit our Instagram page"><i className="fab fa-instagram" aria-hidden="true" /></a>
+              <a href="#" aria-label="Visit our LinkedIn page"><i className="fab fa-linkedin-in" aria-hidden="true" /></a>
+              <a href="#" aria-label="Visit our Twitter page"><i className="fab fa-twitter" aria-hidden="true" /></a>
             </div>
           </div>
           <div className="footer-links">
