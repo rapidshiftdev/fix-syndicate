@@ -412,7 +412,7 @@ export default function Home() {
           </div>
 
           <div className="footer-bottom">
-            <p>&copy; 2026 Fix Syndicate Property Maintenance & Management. All Rights Reserved.</p>
+            <p>&copy; 2027 Fix Syndicate Property Maintenance & Management. All Rights Reserved.</p>
           </div>
         </div>
       </footer>
