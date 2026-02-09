@@ -108,16 +108,28 @@ export default function Home() {
         body: JSON.stringify(data),
       });
 
-      const result = await response.json();
+      // Check if response is ok before parsing JSON
+      if (!response.ok) {
+        // Try to parse error message
+        let errorMessage = 'Something went wrong. Please try again or call us directly.';
+        try {
+          const errorData = await response.json();
+          errorMessage = errorData.error || errorMessage;
+        } catch {
+          // If JSON parsing fails, use status text
+          errorMessage = `Server error (${response.status}): ${response.statusText}`;
+        }
 
-      if (response.ok) {
-        setFormStatus('success');
-        setFormMessage('Thank you! Your message has been sent successfully. We\'ll get back to you soon.');
-        e.currentTarget.reset();
-      } else {
         setFormStatus('error');
-        setFormMessage(result.error || 'Something went wrong. Please try again or call us directly.');
+        setFormMessage(errorMessage);
+        return;
       }
+
+      await response.json(); // Parse to ensure it's valid JSON
+      setFormStatus('success');
+      setFormMessage('Thank you! Your message has been sent successfully. We\'ll get back to you soon.');
+      e.currentTarget.reset();
+
     } catch (error) {
       console.error('Form submission error:', error);
       setFormStatus('error');
