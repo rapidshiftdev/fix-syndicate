@@ -85,12 +85,13 @@ export default function Home() {
     }
   }
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.SyntheticEvent<HTMLFormElement>) {
     e.preventDefault();
+    const formWrapper = e.currentTarget;
     setFormStatus('submitting');
     setFormMessage('');
 
-    const formData = new FormData(e.currentTarget);
+    const formData = new FormData(formWrapper);
     const data = {
       name: formData.get('name') as string,
       phone: formData.get('phone') as string,
@@ -128,7 +129,7 @@ export default function Home() {
       await response.json(); // Parse to ensure it's valid JSON
       setFormStatus('success');
       setFormMessage('Thank you! Your message has been sent successfully. We\'ll get back to you soon.');
-      e.currentTarget.reset();
+      formWrapper.reset();
 
     } catch (error) {
       console.error('Form submission error:', error);
