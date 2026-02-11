@@ -283,6 +283,40 @@ nav.scrolled {
     margin: 0;
 }
 
+.hero-image-before {
+    position: absolute;
+    width: 50%;
+    bottom: 20px;
+    left: -60px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    border: 6px solid white;
+}
+
+.hero-label {
+    position: absolute;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.after-label {
+    top: 15px;
+    left: 15px;
+    background: var(--secondary);
+    color: var(--primary-dark);
+}
+
+.before-label {
+    bottom: -10px;
+    left: -20px;
+    background: var(--primary);
+    color: white;
+}
+
 /* Image Carousel Section */
 .carousel-section {
     padding: 100px 0;
