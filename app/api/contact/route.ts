@@ -34,8 +34,8 @@ export async function POST(request: Request) {
     console.log('Sending email via Resend...');
     // Send email using Resend
     const { error } = await resend.emails.send({
-      from: 'Fix Syndicate Contact Form <onboarding@resend.dev>',
-      to: 'fixsyndicate1@gmail.com',
+      from: 'Fix Syndicate Contact Form <contactus@fix-syndicate.com>',
+      to: 'rapidshiftdev@gmail.com',
       replyTo: email,
       subject: `New Contact Form Submission from ${name}`,
       html: `
