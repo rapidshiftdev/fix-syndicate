@@ -518,7 +518,7 @@ export default function Home() {
                 </div>
                 <div className="contact-item-text">
                   <h4>Email</h4>
-                  <a href="mailto:jeffreyindindi@gmail.com">jeffreyindindi@gmail.com</a>
+                  <a href="mailto:fixsyndicate1@gmail.com">fixsyndicate1@gmail.com</a>
                 </div>
               </div>
 
@@ -631,7 +631,7 @@ export default function Home() {
             <h4>Contact</h4>
             <ul>
               <li><a href="tel:0416493356">0416 493 356</a></li>
-              <li><a href="mailto:jeffreyindindi@gmail.com">jeffreyindindi@gmail.com</a></li>
+              <li><a href="mailto:fixsyndicate1@gmail.com">fixsyndicate1@gmail.com</a></li>
               <li>Mon - Sat: 7AM - 6PM</li>
             </ul>
           </div>
